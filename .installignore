@@ -1,0 +1,11 @@
+# Files to be ignored during installation.
+# Like .gitignore, but for installation scripts.
+
+INSTALL.md
+README.md
+
+install.sh
+
+.git
+.gitignore
+.installignore

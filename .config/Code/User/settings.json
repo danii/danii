@@ -1,0 +1,332 @@
+//                           o
+//    |                o  o  /
+//  __|   __,   _  _           ,
+// /  |  /  |  / |/ |  |  |   / \_
+// \_/|_/\_/|_/  |  |_/|_/|_/  \/   ~/.config/Code/User/settings.json
+
+// This is my Visual Studio Code settings. I have customized Code to be as
+// pretty, useful and transparent as I can.
+
+{
+	// Syntax Highlighting
+	// -------------------
+
+	// Comment #6A9955
+	// Function #DCDCAA
+	// Keyword #4C87B8
+	// #80cc5d
+
+	// Custom
+	"highlight.regexes": {
+		// Documentation comments.
+		"((?:(?<!/)///(?!/)|//!).*)": {
+			"filterLanguageRegex": "rust",
+			"decorations": [{"color": "#80cc5d"}]
+		},
+
+		// Rust panics.
+		"(\\.)(unwrap(?:_err|_none)?)(\\()": {
+			"filterLanguageRegex": "rust",
+			"decorations": [{}, {"color": "#DC5555"}, {}]
+		},
+		"(\\.)(expect(?:_err|_none)?)(\\()": {
+			"filterLanguageRegex": "rust",
+			"decorations": [{}, {"color": "#DC5555"}, {}]
+		},
+		"(panic!)(\\()": {
+			"filterLanguageRegex": "rust",
+			"decorations": [{"color": "#DC5555"}, {}]
+		},
+
+		// Rust unsafety.
+		"(//\\s*SAFETY\\s*:.+(?:\\n//(?!/).*)*)": {
+			"filterLanguageRegex": "rust",
+			"decorations": [{"color": "#b7662f"}]
+		},
+
+		// Todo comments.
+		"(//\\s*TODO\\s*:.+(?:\\n//(?!/).*)*)": {
+			"filterLanguageRegex": "rust|javascript",
+			"decorations": [{"color": "#b74b86"}]
+		},
+		"(#\\s*TODO\\s*:.+)": {
+			"filterLanguageRegex": "python|shell",
+			"decorations": [{"color": "#b74b86"}]
+		},
+
+		// Todo errors.
+		"(unimplemented!)(\\()": {
+			"filterLanguageRegex": "rust",
+			"decorations": [{"color": "#b74b86"}, {}]
+		},
+		"(todo!)(\\()": {
+			"filterLanguageRegex": "rust",
+			"decorations": [{"color": "#b74b86"}, {}]
+		},
+		"(NotImplementedError)": {
+			"filterLanguageRegex": "python",
+			"decorations": [{"color": "#b74b86"}]
+		}
+	},
+
+	// Semantic
+	// Huge thanks to SpencerSharkey / jhgg on GitHub for these colors!
+	"editor.semanticTokenColorCustomizations": {
+		"[Default Dark+]": {
+			"enabled": true,
+			"rules": {
+				"variable.reference": {
+					"italic": true
+				},
+				"parameter.reference": {
+					"italic": true
+				},
+				"method.static": {
+					"foreground": "#f0c506"
+				},
+				"method.public": {
+					"foreground": "#eedf54"
+				},
+				"method.library": {
+					"foreground": "#a5cf0a"
+				},
+				"method.library.static": {
+					"foreground": "#f0c506"
+				},
+				"method.trait": {
+					"foreground": "#cca34a"
+				},
+				"method.library.trait": {
+					"foreground": "#d1ce08"
+				},
+				"keyword.unsafe": {
+					"foreground": "#df732b"
+					// "italic": true
+				},
+				"lifetime": {
+					"foreground": "#11ddcc"
+				},
+				"method.static.unsafe": {
+					"foreground": "#d68855"
+				},
+				"method.declaration.unsafe": {
+					"foreground": "#df732b"
+				},
+				"*.unsafe": {
+					"foreground": "#df732b"
+					// "italic": true
+				},
+				"method.library.unsafe": {
+					"foreground": "#df732b"
+				},
+				"interface.library": "#ffd99f",
+				"builtinAttribute.attribute": {
+					"foreground": "#8ec03e"
+				},
+				"generic.attribute": {
+					"foreground": "#07faeece"
+				},
+				"attribute.library": {
+					"foreground": "#b0ff31c4"
+				},
+				// workaround all attributes being considered unresovled for now?
+				// https://github.com/rust-analyzer/rust-analyzer/issues/10935
+				"attribute.attribute": {
+					"foreground": "#3fcc8a"
+				},
+				"derive.attribute": {
+					"foreground": "#2cbd79"
+				},
+				"parenthesis.attribute": {
+					"foreground": "#338d63"
+				},
+				"typeParameter": {
+					"foreground": "#ca90fa",
+					"bold": true
+				},
+				"selfKeyword": "#809dff",
+				"enum": "#17b1d8",
+				"property": {
+					"foreground": "#75bfe7"
+				},
+				"parameter": {
+					"foreground": "#00afce"
+				},
+				"*.consuming": {
+					"bold": true
+				},
+				"namespace": {
+					"foreground": "#99bfc4"
+				},
+				"namespace.library": {
+					"foreground": "#b4c499"
+				},
+				"unresolvedReference": {
+					"foreground": "#ff493c",
+					"underline": true
+				},
+				"operator": {
+					"foreground": "#d4d4d4da"
+				},
+				"comma": {
+					"foreground": "#d4d4d4da"
+				},
+				"colon": {
+					"foreground": "#d4d4d4da"
+				},
+				"semicolon": {
+					"foreground": "#d4d4d4da"
+				},
+				"punctuation": {
+					"foreground": "#d4d4d4da"
+				},
+				"brace": {
+					"foreground": "#f0ddddda"
+				},
+				"parenthesis": {
+					"foreground": "#d4d4d4da"
+				},
+				"builtinType": {
+					"foreground": "#b7fc89cb"
+				},
+				"angle": {
+					"foreground": "#d4d4d4da"
+				},
+				"operator.controlFlow": {
+					"foreground": "#fd8b5d"
+				},
+				"interface": "#f7ae40",
+				"typeAlias.trait": "#f1e6a3",
+				"keyword.controlFlow": {
+					"foreground": "#e689bc"
+				},
+				"keyword.async": {
+					"foreground": "#ca99f8"
+				},
+				"keyword.async.controlFlow": {
+					"foreground": "#ca99f8"
+				},
+				"macro": {
+					"foreground": "#c0b5ff"
+				},
+				"boolean": {
+					"foreground": "#14b16f"
+				},
+				"string": {
+					"foreground": "#e98e6a"
+				},
+				"typeAlias": {
+					"foreground": "#10d1dd"
+				},
+				"constParameter": {
+					"foreground": "#c15aca",
+					"bold": true
+				},
+				"struct": {
+					"foreground": "#4EC9B0"
+				},
+				// Seems to be for tokens in rust doc comments.
+				"generic.injected": {
+					"foreground": "#4EC9B0"
+				}
+			}
+		}
+	},
+
+	// Other
+	"editor.bracketPairColorization.enabled": true, // Which bracket is that?
+	"editor.renderWhitespace": "boundary", // Am I using tabs or spaces?
+
+	//
+	// Language Servers
+	//
+
+	// Cargo & Build
+	"rust-analyzer.cargo.features": [],
+	"rust-analyzer.checkOnSave.extraArgs": [
+		"--target-dir", "./target/rust-analyzer"
+	],
+
+	// I Know! I'm Not Done Yet!
+	"rust-analyzer.diagnostics.warningsAsHint": [
+		"dead_code",
+		"unused_variables"
+	],
+
+	//
+	// Debugger
+	//
+
+	"debug.allowBreakpointsEverywhere": true,
+	"debug.showBreakpointsInOverviewRuler": true,
+
+	//
+	// Code Size & Feel
+	//
+
+	"editor.tabSize": 2, // My preference
+	"editor.insertSpaces": false, // Spaces are temporary, tabs are eternal
+	"editor.rulers": [80], // So I know how long my lines are
+	"rust-analyzer.inlayHints.enable": false, // So I *always* know how long my lines are
+
+	//
+	// Workspace Feel
+	//
+
+	"window.titleBarStyle": "custom", // Lovely title bar
+	"editor.fontFamily": "Noto Sans Mono", // Lovely font
+	"workbench.startupEditor": "none",
+	"editor.inlineSuggest.enabled": true,
+	"workbench.editor.untitled.hint": "hidden", // Give me a blank canvas damnit!
+
+	//
+	// I Know What I'm Doing, Don't Hide Things From Me!
+	//
+
+	"explorer.confirmDelete": false, // Are you trying to gaslight me?!
+	"files.exclude": {
+		"**/.git": false,
+		"**/.classpath": true,
+		"**/.project": true,
+		"**/.settings": true,
+		"**/.factorypath": true
+	},
+
+	//
+	// Telemetry 🤮
+	//
+
+	"telemetry.telemetryLevel": "off",
+	"telemetry.enableTelemetry": false,
+	"telemetry.enableCrashReporter": false,
+	"telemetry.microsoft": "fuck off",
+
+	//
+	// Miscelaneous / Unsorted
+	//
+
+	"terminal.integrated.fontSize": 11, // More space = more stuff!
+	"eslint.alwaysShowStatus": true,
+	"eslint.debug": true,
+	"liveshare.presence": true,
+	"python.analysis.typeCheckingMode": "strict",
+	"python.analysis.diagnosticSeverityOverrides": {
+		// Ignore missing stubs. (Why are they important anyway???)
+		"reportMissingTypeStubs": "none",
+
+		// Ignore untyped.
+		"reportUnknownArgumentType": "none",
+		"reportUnknownMemberType": "none",
+		//"reportUnknownVariableType": "warning",
+		"reportUntypedClassDecorator": "none",
+		"reportUntypedFunctionDecorator": "none",
+
+		// Ignore unused.
+		"reportUnusedFunction": "none" // May be decorated.
+	},
+	"clangd.fallbackFlags": [
+		"-std=c++17"
+	],
+	"hexeditor.columnWidth": 16,
+	"hexeditor.showDecodedText": true
+}
